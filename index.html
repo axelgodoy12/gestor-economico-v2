@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Economico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <h1 class="title">GESTOR ECONOMICO</h1>
+    <h2 class="sub-title">Billetera Principal</h2>
+    <section class="bullet">
+        <img src="img/credit-card.png" class="credit-card" alt="credit-card">
+        <span class="money">0$</span>
+    </section>
+    <section class="conteinerHistory">
+        <h3 class="sub-title-history">Historial</h3>
+        <table id="historyTable" class="historyTable">
+            <tr>
+                <td id="historialConcepto" class="historialConcepto">ej.: Compra de Iphone 13 PRO MAX</td>
+                <td id="historialCantidad" class="historialCantidad">- $459.999</td>
+            </tr>
+        </table>
+    </section>
+    <section class="conteinerForm">
+        <form class="formi" id="formi">
+            <h3 class="sub-title-form">Nueva entrada</h3>
+            <input class="concepto" type="text" placeholder="Introduce un concepto" name="concepto">
+            <input class="cantidad" type="number" placeholder="Introduce una cantidad" name="cantidad">
+            <button class="ingreso" id="ingreso">Añadir ingreso</button>
+            <button class="gasto" id="gasto">Añadir gasto</button>
+        </form>
+    </section>
+    <script src="js/code.js"></script>
+</body>
+</html>
