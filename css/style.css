@@ -6,11 +6,14 @@ body {
   height: 100vh;
   place-items: center;
   background-color: #212121;
+  grid-template-rows: repeat(5, 60px);
 }
 .title {
   text-align: center;
   font-size: 12px;
   color: #eeeeee;
+  position: relative;
+  bottom: 15px;
 }
 .sub-title {
   position: relative;
@@ -18,10 +21,12 @@ body {
   font-size: 8px;
   color: #7e7474;
   text-align: center;
+  bottom: 55px;
 }
 .bullet {
+  margin: 0;
   position: relative;
-  bottom: 25px;
+  bottom: 75px;
   width: 225px;
   height: 55px;
   background: rgb(234, 46, 163);
@@ -49,24 +54,41 @@ body {
 }
 .conteinerHistory {
   width: 225px;
+  display: block;
   position: relative;
-  bottom: 8px;
+  bottom: 70px;
+  margin: 0;
 }
 .sub-title-history {
   position: relative;
-  bottom: 28px;
+  bottom: 20px;
   font-size: 8px;
   color: #7e7474;
   text-align: center;
 }
 .historyTable {
   position: relative;
+  width: 100%;
+  /* height: 35px; */
+  font-size: 8px;
+  border-radius: 8px;
+  /* background-color: #363636; */
+  bottom: 30px;
+  /* table-layout: fixed; */
+  /* border-collapse: collapse; */
+  border-spacing: 0 5px;
+}
+td {
+  /* border-radius: 8px; */
+  height: 25px;
+}
+tr {
   width: 225px;
-  height: 35px;
+  /* height: 25px; */
   font-size: 8px;
   border-radius: 8px;
   background-color: #363636;
-  bottom: 30px;
+  color: #eeeeee;
 }
 .historialConcepto {
   color: #eeeeee;
@@ -78,7 +100,7 @@ body {
 .conteinerForm {
   width: 225px;
   position: relative;
-  bottom: 50px;
+  bottom: 90px;
 }
 .sub-title-form {
   position: relative;
@@ -104,62 +126,57 @@ input {
 ::placeholder {
   color: #eeeeee;
 }
-button {
+.deleteButton {
   font-family: "Montserrat", sans-serif;
-  border-radius: 5px;
+  border-radius: 100%;
   border-style: none;
-  width: 110px;
-  height: 18px;
+  width: 10px;
+  height: 10px;
   cursor: pointer;
+  font-size: 6px;
   color: #eeeeee;
-  justify-content: space-between;
-  font-size: 8px;
+  background-color: #ce1212;
+  padding-left: 3px;
+  position: relative;
+  left: 5px;
+}
+td:nth-child(1) {
+  width: 65%;
+  border-radius: 5px 0 0 5px;
+  padding-left: 5px;
+}
+
+td:nth-child(2) {
+  width: 29%;
+  border-left: 0;
+  text-align: center;
+  border-spacing: 0;
+}
+
+td:nth-child(3) {
+  width: 6%;
+  border-radius: 0 5px 5px 0;
+  text-align: center;
 }
 .ingreso {
+  font-family: "Montserrat", sans-serif;
   background-color: #a155cc;
+  color: #eeeeee;
+  width: 110px;
+  height: 18px;
+  font-size: 8px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
 }
 .gasto {
+  font-family: "Montserrat", sans-serif;
   background-color: #ea2ea3;
-}
-/* .delete {
+  color: #eeeeee;
+  font-size: 8px;
+  width: 110px;
+  height: 18px;
   border-radius: 5px;
   border-style: none;
-  font-size: 7px;
-  width: 20px;
-  cursor: pointer;
-  position: relative;
-  left: 40px;
-  background: rgb(234, 94, 46);
-  background: linear-gradient(
-    180deg,
-    rgba(234, 94, 46, 1) 0%,
-    rgba(204, 85, 85, 1) 81%
-  );
-  color: #eeeeee;
-} */
-
-/* .buttons {
-  display: grid;
-  grid-auto-flow: column;
-  width: 100%;
-  height: 25px;
-  justify-content: space-between;
-} */
-/* .ingreso {
-  background-color: #ea5e2e;
-  color: #eeeeee;
-  border-radius: 5px;
-  border-style: none;
-  font-size: 7px;
-  width: 150px;
   cursor: pointer;
 }
-.gasto {
-  background-color: #cc5555;
-  color: #eeeeee;
-  border-radius: 5px;
-  border-style: none;
-  font-size: 7px;
-  width: 150px;
-  cursor: pointer;
-} */
