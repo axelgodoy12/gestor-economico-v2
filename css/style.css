@@ -6,27 +6,37 @@ body {
   height: 100vh;
   place-items: center;
   background-color: #212121;
-  grid-template-rows: repeat(5, 60px);
+  grid-template-rows: repeat(3, 100px);
 }
 .title {
   text-align: center;
   font-size: 12px;
   color: #eeeeee;
-  position: relative;
-  bottom: 15px;
+  /* position: relative;
+  bottom: 15px; */
 }
 .sub-title {
-  position: relative;
-  bottom: 15px;
+  /* position: relative;
+  bottom: 15px; */
   font-size: 8px;
   color: #7e7474;
   text-align: center;
-  bottom: 55px;
+}
+.conteinerBullet {
+  display: grid;
+  justify-content: center;
+  width: 260px;
+  height: 180px;
+  background-color: #363636;
+  position: relative;
+  top: 20px;
+  align-items: center;
+  border-radius: 8px;
 }
 .bullet {
-  margin: 0;
+  /* margin: 0;
   position: relative;
-  bottom: 75px;
+  bottom: 75px; */
   width: 225px;
   height: 55px;
   background: rgb(234, 46, 163);
@@ -54,10 +64,9 @@ body {
 }
 .conteinerHistory {
   width: 225px;
-  display: block;
-  position: relative;
-  bottom: 70px;
-  margin: 0;
+  display: grid;
+  position: absolute;
+  grid-template-rows: 25%;
 }
 .sub-title-history {
   position: relative;
@@ -67,13 +76,13 @@ body {
   text-align: center;
 }
 .historyTable {
-  position: relative;
+  position: absolute;
   width: 100%;
   /* height: 35px; */
   font-size: 8px;
   border-radius: 8px;
   /* background-color: #363636; */
-  bottom: 30px;
+  /* bottom: 30px; */
   /* table-layout: fixed; */
   /* border-collapse: collapse; */
   border-spacing: 0 5px;
@@ -99,8 +108,6 @@ tr {
 }
 .conteinerForm {
   width: 225px;
-  position: relative;
-  bottom: 90px;
 }
 .sub-title-form {
   position: relative;

@@ -13,12 +13,25 @@
 </head>
 
 <body>
-    <h1 class="title">GESTOR ECONOMICO</h1>
-    <h2 class="sub-title">Billetera Principal</h2>
-    <section class="bullet">
-        <img src="img/credit-card.png" class="credit-card" alt="credit-card">
-        <span class="money">0$</span>
-    </section>
+    <header>
+        <h1 class="title">GESTOR ECONOMICO</h1>
+        <h2 class="sub-title">Billetera Principal</h2>
+    </header>
+    <main class="conteinerBullet">
+        <div class="bullet">
+            <img src="img/credit-card.png" class="credit-card" alt="credit-card">
+            <span class="money">0$</span>
+        </div>
+        <div class="conteinerForm">
+            <form class="formi" id="formi">
+                <h3 class="sub-title-form">Nueva entrada</h3>
+                <input class="concepto" type="text" placeholder="Introduce un concepto" name="concepto">
+                <input class="cantidad" type="number" placeholder="Introduce una cantidad" name="cantidad">
+                <button class="ingreso" id="ingreso">Añadir ingreso</button>
+                <button class="gasto" id="gasto">Añadir gasto</button>
+            </form>
+        </div>
+    </main>
     <section class="conteinerHistory">
         <h3 class="sub-title-history">Historial</h3>
         <table id="historyTable" class="historyTable">
@@ -27,15 +40,6 @@
                 <td id="historialCantidad" class="historialCantidad">- $459.999</td> -->
             </tr>
         </table>
-    </section>
-    <section class="conteinerForm">
-        <form class="formi" id="formi">
-            <h3 class="sub-title-form">Nueva entrada</h3>
-            <input class="concepto" type="text" placeholder="Introduce un concepto" name="concepto">
-            <input class="cantidad" type="number" placeholder="Introduce una cantidad" name="cantidad">
-            <button class="ingreso" id="ingreso">Añadir ingreso</button>
-            <button class="gasto" id="gasto">Añadir gasto</button>
-        </form>
     </section>
     <script src="js/code2.js"></script>
 </body>
