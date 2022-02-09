@@ -3,14 +3,26 @@ body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   display: grid;
-  height: 100vh;
-  place-items: center;
+  /* grid-template: repeat(6, 400px) / repeat(6, 400px); */
+  grid-template-columns: 400px;
+  grid-template-rows: 85px 300px 200px;
+  /* height: 100vh; */
+  align-items: center;
   background-color: #212121;
-  grid-template-rows: repeat(3, 100px);
+  /* grid-auto-flow: row; */
+  justify-content: center;
+}
+header {
+  /* display: grid; */
+  height: 85px;
+  width: 400px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  align-items: start;
 }
 .title {
   text-align: center;
-  font-size: 12px;
+  font-size: 25px;
   color: #eeeeee;
   /* position: relative;
   bottom: 15px; */
@@ -18,18 +30,20 @@ body {
 .sub-title {
   /* position: relative;
   bottom: 15px; */
-  font-size: 8px;
+  font-size: 20px;
   color: #7e7474;
   text-align: center;
+  align-items: start;
 }
 .conteinerBullet {
   display: grid;
+  margin-top: 30px;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
   justify-content: center;
-  width: 260px;
-  height: 180px;
+  width: 400px;
+  height: 300px;
   background-color: #363636;
-  position: relative;
-  top: 20px;
   align-items: center;
   border-radius: 8px;
 }
@@ -37,67 +51,111 @@ body {
   /* margin: 0;
   position: relative;
   bottom: 75px; */
-  width: 225px;
-  height: 55px;
-  background: rgb(234, 46, 163);
+  width: 340px;
+  height: 100px;
+  background: rgb(0, 147, 125);
   background: linear-gradient(
     180deg,
-    rgba(234, 46, 163, 1) 25%,
-    rgba(161, 85, 204, 1) 75%
+    rgba(0, 147, 125, 1) 25%,
+    rgba(134, 87, 174, 1) 75%
   );
   border-radius: 8px;
 }
 .credit-card {
-  width: 15px;
+  width: 25px;
   position: relative;
-  height: 15px;
+  height: 25px;
   left: 8px;
   top: 5px;
-  color: #eeeeee;
+  /* color: #eeeeee; */
 }
 .money {
   color: #eeeeee;
-  font-size: 10px;
+  font-size: 18px;
   position: relative;
-  left: 90px;
-  top: 17px;
+  left: 130px;
+  top: 30px;
 }
-.conteinerHistory {
-  width: 225px;
+.conteinerForm {
+  width: 340px;
+  height: 170px;
   display: grid;
-  position: absolute;
-  grid-template-rows: 25%;
+  align-items: center;
 }
-.sub-title-history {
+.sub-title-form {
   position: relative;
-  bottom: 20px;
-  font-size: 8px;
+  font-size: 18px;
   color: #7e7474;
   text-align: center;
+  top: 15px;
+}
+.formi {
+  width: 340px;
+  position: relative;
+  bottom: 35px;
+}
+input {
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  border-style: none;
+  width: 340px;
+  background-color: #706868;
+  height: 40px;
+  font-size: 16px;
+  color: #eeeeee;
+  margin-top: 6px;
+  /* position: relative;
+  right: 80px; */
+}
+::placeholder {
+  color: #eeeeee;
+}
+.conteinerHistory {
+  width: 400px;
+  height: 200px;
+  /* display: grid; */
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  /* position: absolute; */
+  /* grid-template-rows: 25%; */
+}
+.sub-title-history {
+  font-size: 18px;
+  color: #7e7474;
+  text-align: center;
+  position: relative;
+  margin-top: 30px;
 }
 .historyTable {
-  position: absolute;
-  width: 100%;
+  /* position: absolute;
+  width: 100%; */
   /* height: 35px; */
-  font-size: 8px;
+  /* display: grid; */
+  font-size: 16px;
+  position: relative;
+  bottom: 20px;
+  left: 11px;
   border-radius: 8px;
   /* background-color: #363636; */
   /* bottom: 30px; */
   /* table-layout: fixed; */
   /* border-collapse: collapse; */
   border-spacing: 0 5px;
+  width: 380px;
 }
 td {
   /* border-radius: 8px; */
-  height: 25px;
+  height: 40px;
+  width: 380px;
 }
 tr {
-  width: 225px;
+  width: 380px;
   /* height: 25px; */
-  font-size: 8px;
+  font-size: 16px;
   border-radius: 8px;
-  background-color: #363636;
+  background-color: #464362;
   color: #eeeeee;
+  grid-auto-flow: row;
 }
 .historialConcepto {
   color: #eeeeee;
@@ -106,46 +164,19 @@ tr {
 .historialCantidad {
   color: #ea2ea3;
 }
-.conteinerForm {
-  width: 225px;
-}
-.sub-title-form {
-  position: relative;
-  font-size: 8px;
-  color: #7e7474;
-  text-align: center;
-}
-.formi {
-  width: 225px;
-  position: relative;
-}
-input {
-  font-family: "Montserrat", sans-serif;
-  border-radius: 5px;
-  border-style: none;
-  width: 218px;
-  background-color: #706868;
-  height: 20px;
-  font-size: 8px;
-  color: #eeeeee;
-  padding-left: 5px;
-}
-::placeholder {
-  color: #eeeeee;
-}
 .deleteButton {
   font-family: "Montserrat", sans-serif;
   border-radius: 100%;
   border-style: none;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-  font-size: 6px;
+  font-size: 10px;
   color: #eeeeee;
-  background-color: #ce1212;
-  padding-left: 3px;
+  background-color: #9e0000;
+  padding-left: 5px;
   position: relative;
-  left: 5px;
+  left: 11px;
 }
 td:nth-child(1) {
   width: 65%;
@@ -167,23 +198,25 @@ td:nth-child(3) {
 }
 .ingreso {
   font-family: "Montserrat", sans-serif;
-  background-color: #a155cc;
+  background-color: #00937d;
   color: #eeeeee;
-  width: 110px;
-  height: 18px;
-  font-size: 8px;
+  width: 168px;
+  height: 40px;
+  font-size: 16px;
   border-radius: 5px;
   border-style: none;
   cursor: pointer;
+  margin-top: 6px;
 }
 .gasto {
   font-family: "Montserrat", sans-serif;
-  background-color: #ea2ea3;
+  background-color: #8657ae;
   color: #eeeeee;
-  font-size: 8px;
-  width: 110px;
-  height: 18px;
+  font-size: 16px;
+  width: 167px;
+  height: 40px;
   border-radius: 5px;
   border-style: none;
   cursor: pointer;
+  margin-top: 6px;
 }
