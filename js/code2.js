@@ -1,4 +1,6 @@
 const formu = document.getElementById("formi")
+const ingresoBtn = document.getElementById("ingreso")
+const gastoBtn = document.getElementById("gasto")
 
 formu.addEventListener('submit', (event) => {
     event.preventDefault();
