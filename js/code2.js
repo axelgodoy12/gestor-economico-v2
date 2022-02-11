@@ -1,5 +1,4 @@
 const formu = document.getElementById("formi")
-const ingresoBtn = document.getElementById("ingreso")
 const gastoBtn = document.getElementById("gasto")
 
 formu.addEventListener('submit', (event) => {
@@ -9,7 +8,19 @@ formu.addEventListener('submit', (event) => {
     let transaccionObj = convertirFormDataToObj(transaccionFormData);
     if (isValidTransaccionForm(transaccionObj)) {
         saveTransaccionObj(transaccionObj);
-        insertRowInHistoryTable(transaccionObj);
+        insertRowInHistoryTableIngreso(transaccionObj);
+        formu.reset();
+    } else {
+        // mostrar error
+    }
+})
+
+gastoBtn.addEventListener('click', (event) => {
+    let transaccionFormData = new FormData(formu);
+    let transaccionObj = convertirFormDataToObj(transaccionFormData);
+    if (isValidTransaccionForm(transaccionObj)) {
+        saveTransaccionObj(transaccionObj);
+        insertRowInHistoryTableGasto(transaccionObj);
         formu.reset();
     } else {
         // mostrar error
@@ -20,10 +31,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let transaccionObjArray = JSON.parse(localStorage.getItem("transaccionData"))
     transaccionObjArray.forEach(
         function (transaccionArray) {
-            insertRowInHistoryTable(transaccionArray)
+            insertRowInHistoryTableIngreso(transaccionArray)
+            insertRowInHistoryTableGasto(transaccionArray)
         }
     )
 })
+
+// document.addEventListener("DOMContentLoaded", function (event) {
+//     let transaccionObjArray = JSON.parse(localStorage.getItem("transaccionData"))
+//     transaccionObjArray.forEach(
+//         function (transaccionArray) {
+//             insertRowInHistoryTableGasto(transaccionArray)
+//         }
+//     )
+// })
 
 function getNewTransaccionId() {
     let lastTransaccionId = localStorage.getItem("lastTransaccionId") || "-1";
@@ -59,7 +80,7 @@ function isValidTransaccionForm(transaccionObj) {
     return isValidForm;
 }
 
-function insertRowInHistoryTable(transaccionObj) {
+function insertRowInHistoryTableIngreso(transaccionObj) {
     let historyTableRef = document.getElementById("historyTable");
 
     let newHistoryRowRef = historyTableRef.insertRow(-1);
@@ -71,6 +92,37 @@ function insertRowInHistoryTable(transaccionObj) {
 
     newHistoryCellRef = newHistoryRowRef.insertCell(1);
     newHistoryCellRef.textContent = transaccionObj["cantidad"];
+    let historialIngreso = newHistoryCellRef;
+    historialIngreso.classList.add("historialIngreso");
+
+    let newDeleteCell = newHistoryRowRef.insertCell(2);
+    let deleteButton = document.createElement("button");
+    deleteButton.classList.add("deleteButton");
+    deleteButton.textContent = "X";
+    newDeleteCell.appendChild(deleteButton);
+
+    deleteButton.addEventListener("click", (event) => {
+        let transaccionRow = event.target.parentNode.parentNode;
+        let transaccinoId2 = transaccionRow.getAttribute("data-transaccion-Id");
+        transaccionRow.remove();
+        DeleteTransaccionObj(transaccinoId2);
+    })
+}
+
+function insertRowInHistoryTableGasto(transaccionObj) {
+    let historyTableRef = document.getElementById("historyTable");
+
+    let newHistoryRowRef = historyTableRef.insertRow(-1);
+
+    newHistoryRowRef.setAttribute("data-transaccion-Id", transaccionObj["transaccionId"]);
+
+    let newHistoryCellRef = newHistoryRowRef.insertCell(0);
+    newHistoryCellRef.textContent = transaccionObj["concepto"];
+
+    newHistoryCellRef = newHistoryRowRef.insertCell(1);
+    newHistoryCellRef.textContent = transaccionObj["cantidad"];
+    let historialGasto = newHistoryCellRef;
+    historialGasto.classList.add("historialGasto");
 
     let newDeleteCell = newHistoryRowRef.insertCell(2);
     let deleteButton = document.createElement("button");
@@ -99,9 +151,9 @@ function DeleteTransaccionObj(transaccionId){
     // Obtengo las transaccion de mi "base de datos"
     // DESCONVIERTO DE JSON A OBJETO
     let transaccionObjArray = JSON.parse(localStorage.getItem("transaccionData"))
-    // Busco el indice o posicion de la transaccio que 
+    // Busco el indice o posicion de la transaccion que 
     // quiero eliminar
-    let transaccionIndexArray = transaccionObjArray.findIndex(element => element.transaccionId == transaccionId);7
+    let transaccionIndexArray = transaccionObjArray.findIndex(element => element.transaccionId == transaccionId);
     // Elimino la transaccion o el elemento de esa posicion
     transaccionObjArray.splice(transaccionIndexArray, 1);
     // convierto de objeto a JSON
