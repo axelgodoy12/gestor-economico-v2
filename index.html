@@ -8,7 +8,7 @@
     <title>Gestor Economico</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="img/calculator-icon_34473.png" type="image/png" sizes="32x32" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -23,26 +23,25 @@
             <img src="img/credit-card.png" class="credit-card" alt="credit-card">
             <span class="money">0$</span>
         </div>
-        <div class="conteinerForm">
-            <form class="formi" id="formi">
+        <div class="conteinerForm" id="conteinerForm">
+            <form class="formWallet" id="formWallet">
                 <h3 class="sub-title-form">Nueva entrada</h3>
-                <input class="concepto" type="text" placeholder="Introduce un concepto" name="concepto">
-                <input class="cantidad" type="number" placeholder="Introduce una cantidad" name="cantidad">
-                <button type="submit" class="ingreso" id="ingreso">Añadir ingreso</button>
-                <button type="button" class="gasto" id="gasto">Añadir gasto</button>
+                <input class="formConcept" id="formConcept" type="text" placeholder="Introduce un concepto" name="formConcept">
+                <input class="formCash" id="formCash" type="number" placeholder="Introduce una cantidad" name="formCash">
+                <button type="submit" class="addUp" id="addUp" id="ingreso">Añadir ingreso</button>
+                <button type="click" class="addDown" id="addDown">Añadir gasto</button>
             </form>
         </div>
     </main>
     <section class="conteinerHistory">
         <h3 class="sub-title-history">Historial</h3>
-        <table id="historyTable" class="historyTable">
-            <tr>
-                <!-- <td id="historialConcepto" class="historialConcepto">ej.: Compra de Iphone 13 PRO MAX</td>
-                <td id="historialCantidad" class="historialCantidad">- $459.999</td> -->
-            </tr>
+        <table id="walletTable" class="walletTable">
         </table>
     </section>
-    <script src="js/code2.js"></script>
+    <template id="template">
+            <td id="walletConcept" class="walletConcept"></td>
+            <td id="walletCash" class="walletCash"></td>
+    <script src="js/code3.js"></script>
 </body>
 
 </html>

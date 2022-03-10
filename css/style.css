@@ -163,9 +163,11 @@ tr {
 } */
 .historialIngreso {
   color: #00937d;
+  font-weight: bold;
 }
 .historialGasto {
   color: #8657ae;
+  font-weight: bold;
 }
 .deleteButton {
   font-family: "Montserrat", sans-serif;
