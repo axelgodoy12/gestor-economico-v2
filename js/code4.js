@@ -9,80 +9,56 @@ const fragment = document.createDocumentFragment();
 const conteinerForm = document.getElementById("conteinerForm");
 let income = {};
 let output = {};
-// new Document();
 
-// document.body = formWallet
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem('income')) {
         income = JSON.parse(localStorage.getItem('income'));
     }
-    addIncome();
     if (localStorage.getItem('output')) {
         output = JSON.parse(localStorage.getItem('output'));
     }
+    addIncome();
+    addOutput();
 })
 // document.addEventListener("DOMContentLoaded", () => {
 //     if (localStorage.getItem('output')) {
 //         output = JSON.parse(localStorage.getItem('output'));
 //     }
-//     addTask();
+//     addOutput();
 // })
-
-// formWallet.addEventListener('submit', (e) => {
-//   // console.log('click')
-//   // console.log(e.target)
-//   // console.log(e.target.classList.contains('btn-info'))
-//     e.preventDefault();
-//     if (e.target.classList.contains("addUp")) {
-//         setIncome(e);
-//         return
+// document.addEventListener("DOMContentLoaded", () => {
+//     if (localStorage.getItem('income')) {
+//         income = JSON.parse(localStorage.getItem('income'));
 //     }
-//     e.stopPropagation()
-// });
-// formWallet.addEventListener('submit', (e) => {
-//   // console.log('click')
-//   // console.log(e.target)
-//   // console.log(e.target.classList.contains('btn-info'))
-//     e.preventDefault();
-//     if (e.target.classList.contains("addDown")) {
-//         setOutput(e);
-//         return
+//     addIncome();
+//     if (localStorage.getItem('output')) {
+//         output = JSON.parse(localStorage.getItem('output'));
 //     }
-//     e.stopPropagation()
-// });
-
-
-
-
-formWallet.addEventListener('submit', e => {
+//     setOutput();
+// })
+conteinerForm.addEventListener('click', (e) => {
+  // console.log('click')
+  // console.log(e.target)
+  // console.log(e.target.classList.contains('btn-info'))
     e.preventDefault();
-    // FORMAS DE SELECCIONAR LOS VALORES
-    // console.log(e.target[0].value);
-    // console.log(e.target.querySelector("input").value);
-    // console.log(input.value);
-    setIncome(e);
-    // setOutput(e);
-    // formWallet.reset();
-});
-
-
-
-const setOutput = (e) => {
-    if (formConcept.value.trim() === "" && formCash.value.trim() === "") {
-        alert("Completa los campos");
+    if (e.target.classList.contains("addUp")) {
+        setIncome(e);
         return
     }
-    const egress = {
-        id: Date.now(),
-        texto: formConcept.value,
-        money: formCash.value,
-        estado: false
+    e.stopPropagation()
+});
+conteinerForm.addEventListener('click', (e) => {
+  // console.log('click')
+  // console.log(e.target)
+  // console.log(e.target.classList.contains('btn-info'))
+    e.preventDefault();
+    if (e.target.classList.contains("addDown")) {
+        setOutput(e);
+        return
     }
-    output[egress.id] = egress;
-    formConcept.focus();
-    addOutput();
-    // e.stopPropagation()
-}
+    e.stopPropagation()
+});
+
 
 const setIncome = (e) => {
     if (formConcept.value.trim() === "" && formCash.value.trim() === "") {
@@ -101,22 +77,6 @@ const setIncome = (e) => {
     addIncome();
     // e.stopPropagation()
 };
-
-const addOutput = () => {
-    localStorage.setItem('output', JSON.stringify(output));
-    if (Object.values(output).length === 0) {
-        walletTable.innerHTML = ``;
-        return
-    }
-    walletTable.innerHTML = "";
-    Object.values(output).forEach(egress => {
-        const clone = template.cloneNode(true)
-        clone.querySelector('.walletConcept').textContent = egress.texto
-        clone.querySelector('.walletCash').textContent = egress.money
-        fragment.appendChild(clone)
-    });
-    walletTable.appendChild(fragment);
-}
 
 const addIncome = () => {
     localStorage.setItem('income', JSON.stringify(income));
@@ -140,3 +100,37 @@ const addIncome = () => {
     });
     walletTable.appendChild(fragment);
 };
+
+const setOutput = (e) => {
+    if (formConcept.value.trim() === "" && formCash.value.trim() === "") {
+        alert("Completa los campos");
+        return
+    }
+    const egress = {
+        id: Date.now(),
+        texto: formConcept.value,
+        money: formCash.value,
+        estado: false
+    }
+    output[egress.id] = egress;
+    formConcept.focus();
+    formWallet.reset();
+    addOutput();
+    // e.stopPropagation()
+}
+
+const addOutput = () => {
+    localStorage.setItem('output', JSON.stringify(output));
+    if (Object.values(output).length === 0) {
+        walletTable.innerHTML = ``;
+        return
+    }
+    walletTable.innerHTML = "";
+    Object.values(output).forEach(egress => {
+        const clone = template.cloneNode(true)
+        clone.querySelector('.walletConcept').textContent = egress.texto
+        clone.querySelector('.walletCash').textContent = egress.money
+        fragment.appendChild(clone)
+    });
+    walletTable.appendChild(fragment);
+}
