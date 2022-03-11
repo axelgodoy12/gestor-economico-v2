@@ -36,12 +36,21 @@
     <section class="conteinerHistory">
         <h3 class="sub-title-history">Historial</h3>
         <table id="walletTable" class="walletTable">
+            <tr class="walletRow" id="walletRow"></tr>
         </table>
     </section>
     <template id="template">
         <tr>
-            <td id="walletConcept" class="walletConcept"></td>
-            <td id="walletCash" class="walletCash"></td>
+            <td id="walletConcept" class="wallet walletConcept"></td>
+            <td id="walletCash" class="wallet walletCashIn"></td>
+            <td id="deleteButton" class="wallet deleteButton">X</td>
+        </tr>
+    </template>
+    <template id="template2">
+        <tr>
+            <td id="wallet walletConcept" class="wallet walletConcept"></td>
+            <td id="wallet walletCash" class="wallet walletCashOut"></td>
+            <td id="deleteButton" class="wallet deleteButton">X</td>
         </tr>
     </template>
     <script src="js/code4.js"></script>
